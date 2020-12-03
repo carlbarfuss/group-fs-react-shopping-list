@@ -23,6 +23,14 @@ class App extends Component {
     })
   }
 
+  deleteItem = (event, itemID) => {
+    console.log(itemID);
+    axios.delete(`/list/${itemID}`)
+      .then((response) => {
+        console.log(`deleted ${itemID}`);
+        this.getShoppingList();
+      })
+  }
 
   render() {
     return (
