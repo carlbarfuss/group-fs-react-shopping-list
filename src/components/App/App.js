@@ -9,6 +9,11 @@ class App extends Component {
     shoppingList: []
   }
 
+  componentDidMount(){
+    console.log('ComponentDidMount')
+    this.getShoppingList();
+  }
+
   getShoppingList = () => {
     axios.get('/list')
     .then ( (response) => {
@@ -23,6 +28,29 @@ class App extends Component {
     })
   }
 
+  deleteItem = (event, itemID) => {
+    axios.delete(`/list/${itemID}`)
+      .then((response) => {
+        console.log(`deleted ${itemID}`);
+        this.getShoppingList();
+      })
+  }
+
+  buyItem = (event, ItemID) => {
+    axios.put(`/list/${itemID}`)
+      .then((response) => {
+        console.log(`purchased ${itemID}`);
+        this.getShoppingList();
+      })
+  }
+
+  resetList = (event) => {
+    console.log('reset list');
+    axios.put('/list/reset')
+      .then((response) => {
+        this.getShoppingList();
+      })
+  }
 
   render() {
     return (
@@ -31,7 +59,7 @@ class App extends Component {
           <h1>My Shopping List</h1>
         </header>
         <main>
-          <ShoppingList />
+          <ShoppingList shoppingList={this.state.shoppingList} />
         </main>
       </div>
     );

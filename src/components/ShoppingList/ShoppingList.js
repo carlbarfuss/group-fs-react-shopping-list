@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
+import ShoppingListItem from '../ShoppingListItem/ShoppingListItem';
 
 class ShoppingList extends Component{
     render(){
         return(
-            <div>
-                <h1>hello from ShoppingList component</h1>
+            <div className="shopping-list">
+                { this.props.shoppingList.map((item) => 
+                    <ShoppingListItem item={item} key={item.id} />
+                )
+
+
+                }
             </div>
         ) // end return
     } // end render
