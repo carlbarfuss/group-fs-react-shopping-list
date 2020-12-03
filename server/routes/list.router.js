@@ -20,13 +20,27 @@ router.get('/', (req, res) => {
 
 //POST ROUTE
 
+router.post('/', (req, res) => {
+    const item = req.body;
+    const sqlText = `INSERT INTO "list" ("name", "quantity", "unit") VALUES ($1, $2, $3);`;
+    // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
+    // the $1, $2, etc get substituted with the values from the array below
+    pool.query(sqlText, [item.name, item.quantity, item.unit])
+        .then((result) => {
+            console.log(`Added item to the database`, item);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500); // Good server always responds
+        })
+})
 
-//PUT ROUTE 1 (sets status to PURCHASED/BOUGHT WHEN BUTTON CLICKED)
-router.put('/:id', (req, res) => {
-    let reqId = req.params.id;
+//PUT ROUTE 1 sets status of all items to purchased = false
+router.put('/reset', (req, res) => {
     let sqlText = '';
-        sqlText = `UPDATE list SET purchased=true WHERE id=$1`;
-    
+    sqlText = `UPDATE list SET purchased=false WHERE purchased=true`;
+
     pool.query(sqlText, [reqId])
         .then((result) => {
             res.sendStatus(200);
@@ -37,11 +51,12 @@ router.put('/:id', (req, res) => {
         })
 })
 
-//PUT ROUTE 2 sets status of all items to purchased = false
-router.put('/reset', (req, res) => {
+//PUT ROUTE 2 (sets status to PURCHASED/BOUGHT WHEN BUTTON CLICKED)
+router.put('/:id', (req, res) => {
+    let reqId = req.params.id;
     let sqlText = '';
-    sqlText = `UPDATE list SET purchased=false WHERE purchased=true`;
-
+        sqlText = `UPDATE list SET purchased=true WHERE id=$1`;
+    
     pool.query(sqlText, [reqId])
         .then((result) => {
             res.sendStatus(200);
