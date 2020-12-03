@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
 import ShoppingList from '../ShoppingList/ShoppingList';
+import ItemInput from '../ItemInput/ItemInput';
 
 class App extends Component {
 
@@ -59,6 +60,7 @@ class App extends Component {
           <h1>My Shopping List</h1>
         </header>
         <main>
+          <ItemInput getShoppingList={this.getShoppingList} />
           <ShoppingList shoppingList={this.state.shoppingList} />
         </main>
       </div>
