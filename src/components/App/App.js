@@ -4,6 +4,7 @@ import './App.css';
 import ShoppingList from '../ShoppingList/ShoppingList';
 import ItemInput from '../ItemInput/ItemInput';
 
+
 class App extends Component {
 
   state = {
@@ -61,7 +62,7 @@ class App extends Component {
         </header>
         <main>
           <ItemInput getShoppingList={this.getShoppingList} />
-          <ShoppingList shoppingList={this.state.shoppingList} />
+          <ShoppingList shoppingList={this.state.shoppingList} getShoppingList={this.getShoppingList}/>
         </main>
       </div>
     );

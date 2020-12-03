@@ -6,7 +6,7 @@ class ShoppingList extends Component{
         return(
             <div className="shopping-list">
                 { this.props.shoppingList.map((item) => 
-                    <ShoppingListItem item={item} key={item.id} />
+                    <ShoppingListItem item={item} key={item.id} shoppingList={this.props.shippingList} getShoppingList={this.props.getShoppingList}/>
                 )
 
 
