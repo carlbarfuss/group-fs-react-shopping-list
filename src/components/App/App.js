@@ -9,6 +9,11 @@ class App extends Component {
     shoppingList: []
   }
 
+  componentDidMount(){
+    console.log('ComponentDidMount')
+    this.getShoppingList();
+  }
+
   getShoppingList = () => {
     axios.get('/list')
     .then ( (response) => {
@@ -31,7 +36,7 @@ class App extends Component {
           <h1>My Shopping List</h1>
         </header>
         <main>
-          <ShoppingList />
+          <ShoppingList shoppingList={this.state.shoppingList} />
         </main>
       </div>
     );
