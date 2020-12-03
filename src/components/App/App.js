@@ -36,7 +36,7 @@ class App extends Component {
       })
   }
 
-  buyItem = (event, ItemID) => {
+  buyItem = (event, itemID) => {
     axios.put(`/list/${itemID}`)
       .then((response) => {
         console.log(`purchased ${itemID}`);

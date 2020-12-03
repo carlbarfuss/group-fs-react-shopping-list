@@ -3,3 +3,24 @@
   text-align: center;
   padding: 0.25em;
 }
+
+main{
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.shopping-list{ 
+  padding-top: 2em;
+}
+
+.shopping-list-item {
+  border: 1px solid darkblue;
+  border-radius: .5em;
+  display: inline-block;
+  width: 250px;
+  height: 200px;
+  text-align: center;
+  padding: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
