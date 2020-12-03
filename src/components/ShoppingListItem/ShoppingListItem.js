@@ -23,7 +23,7 @@ class ShoppingListItem extends Component{
         return(
             <div className="shopping-list-item">
                 <h2>{this.props.item.name}</h2>
-                <p>{this.props.item.quantity} {this.props.item.unit}</p>
+                <p className="shopping-list-quantity">{this.props.item.quantity} {this.props.item.unit}</p>
                 {this.props.item.purchased ? 
                 <p>Purchased</p> : 
                 <><button onClick={ (event) => this.buyItem(event, this.props.item.id) }>Buy</button>
