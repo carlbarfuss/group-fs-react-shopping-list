@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 import ShoppingList from '../ShoppingList/ShoppingList';
 
+
 class App extends Component {
 
   state = {
@@ -28,22 +29,6 @@ class App extends Component {
     })
   }
 
-  deleteItem = (event, itemID) => {
-    axios.delete(`/list/${itemID}`)
-      .then((response) => {
-        console.log(`deleted ${itemID}`);
-        this.getShoppingList();
-      })
-  }
-
-  buyItem = (event, ItemID) => {
-    axios.put(`/list/${itemID}`)
-      .then((response) => {
-        console.log(`purchased ${itemID}`);
-        this.getShoppingList();
-      })
-  }
-
   resetList = (event) => {
     console.log('reset list');
     axios.put('/list/reset')
@@ -59,7 +44,7 @@ class App extends Component {
           <h1>My Shopping List</h1>
         </header>
         <main>
-          <ShoppingList shoppingList={this.state.shoppingList} />
+          <ShoppingList shoppingList={this.state.shoppingList} getShoppingList={this.getShoppingList}/>
         </main>
       </div>
     );
