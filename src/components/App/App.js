@@ -9,7 +9,7 @@ class App extends Component {
           <h1>My Shopping List</h1>
         </header>
         <main>
-          <p>Under Construction...</p>
+          <ShoppingList />
         </main>
       </div>
     );
