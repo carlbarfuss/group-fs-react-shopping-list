@@ -36,12 +36,11 @@ router.post('/', (req, res) => {
         })
 })
 
-//PUT ROUTE 1 (sets status to PURCHASED/BOUGHT WHEN BUTTON CLICKED)
-router.put('/:id', (req, res) => {
-    let reqId = req.params.id;
+//PUT ROUTE 1 sets status of all items to purchased = false
+router.put('/reset', (req, res) => {
     let sqlText = '';
-        sqlText = `UPDATE list SET purchased=true WHERE id=$1`;
-    
+    sqlText = `UPDATE list SET purchased=false WHERE purchased=true`;
+
     pool.query(sqlText, [reqId])
         .then((result) => {
             res.sendStatus(200);
@@ -52,11 +51,12 @@ router.put('/:id', (req, res) => {
         })
 })
 
-//PUT ROUTE 2 sets status of all items to purchased = false
-router.put('/reset', (req, res) => {
+//PUT ROUTE 2 (sets status to PURCHASED/BOUGHT WHEN BUTTON CLICKED)
+router.put('/:id', (req, res) => {
+    let reqId = req.params.id;
     let sqlText = '';
-    sqlText = `UPDATE list SET purchased=false WHERE purchased=true`;
-
+        sqlText = `UPDATE list SET purchased=true WHERE id=$1`;
+    
     pool.query(sqlText, [reqId])
         .then((result) => {
             res.sendStatus(200);
