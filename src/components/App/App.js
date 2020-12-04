@@ -78,15 +78,22 @@ class App extends Component {
       url: '/list',
       data: newItem
     })
-    .then((response) =>{
-      // info we want is in the response data property
-      console.log("Response", response.data);
-      this.getShoppingList();
-    })
-    .catch((error) =>{
-      alert('Something bad happened');
-      console.log('error', error);
-    })
+      .then((response) => {
+        // info we want is in the response data property
+        console.log("Response", response.data);
+        this.getShoppingList();
+        this.setState({
+          newItem: {
+            name: '',
+            quantity: '',
+            unit: ''
+          }
+        })
+      })
+      .catch((error) => {
+        alert('Something bad happened');
+        console.log('error', error);
+      })
   }
 
   render() {
@@ -96,7 +103,7 @@ class App extends Component {
           <h1>My Shopping List</h1>
         </header>
         <main>
-          <ItemInput addItem={this.addItem} handleChangeFor={this.handleChangeFor} />
+          <ItemInput newItem={this.state.newItem} addItem={this.addItem} handleChangeFor={this.handleChangeFor} />
           <ShoppingList shoppingList={this.state.shoppingList} getShoppingList={this.getShoppingList} />
         </main>
       </div>
