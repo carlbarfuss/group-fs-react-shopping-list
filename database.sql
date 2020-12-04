@@ -4,7 +4,7 @@
 CREATE TABLE list (
 	id SERIAL PRIMARY KEY,	
     Name VARCHAR (80),
-    Quantity DECIMAL(3,2),
+    Quantity DECIMAL(5,2),
     Unit VARCHAR (20),
     Purchased BOOLEAN default false
 );
