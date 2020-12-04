@@ -13,8 +13,7 @@ Web app that allows the user to add tasks to a to-do list. From there, they can 
 
 ## Screen Shot
 
-FINAL SCREEN SHOT WILL GO HERE
-<!-- ![Wireframe](server/public/imgs/to-do-app.png) -->
+![Wireframe](public/images/wireframe.png)
 
 ## Installation
 
@@ -27,6 +26,7 @@ Download the repository and [node.js](https://nodejs.org/en/download/) if you do
 - Input fields at the top of the page allow the user to submit a item, quantity, and unit of that quantity.
 - Once an item as been added to the list, there are 2 buttons to allow the user to either mark the item as purchased, or delete the item entirely
 - If the task is completed, it will be moved to the back of the list, and the display will change to signify that it has been purchased.
+- Sweetalert-2 used to confirm if the user wants to delete or reset the entire table.
 
 ## Built With
 
