@@ -22,14 +22,19 @@ main{
   text-align: center;
   padding: 1em;
   margin-right: 1em;
+  margin-left: 1em;
   margin-bottom: 1em;
 }
 
-.shopping-list-quanitity{
-  margin-top: 2em;
-  margin-bottom: 2em;
+.shopping-list-quantity{
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 .purchased{
   background-color: yellow;
+}
+
+.shopping-list-item-buy{
+  margin-right: 1em;
 }

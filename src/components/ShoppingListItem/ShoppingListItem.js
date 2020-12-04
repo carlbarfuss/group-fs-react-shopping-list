@@ -26,8 +26,8 @@ class ShoppingListItem extends Component{
                 <p className="shopping-list-quantity">{this.props.item.quantity} {this.props.item.unit}</p>
                 {this.props.item.purchased ? 
                 <p>Purchased</p> : 
-                <><button onClick={ (event) => this.buyItem(event, this.props.item.id) }>Buy</button>
-                <button onClick={ (event) => this.deleteItem(event, this.props.item.id) }>Remove</button></>
+                <><button className="btn btn-success shopping-list-item-buy" onClick={ (event) => this.buyItem(event, this.props.item.id) }>Buy</button>
+                <button className="btn btn-danger shopping-list-item-delete" onClick={ (event) => this.deleteItem(event, this.props.item.id) }>Remove</button></>
                 }
             </div>
         ) // end return
