@@ -23,7 +23,7 @@ class ShoppingList extends Component{
     render(){
        return(
             <>
-            <ButtonActionForFormsForMaryWithDescriptiveNamingConvention />
+               <ButtonActionForFormsForMaryWithDescriptiveNamingConvention shoppingList={this.props.shippingList} getShoppingList={this.props.getShoppingList}/>
             <div className="shopping-list">
                 { this.props.shoppingList.map((item) => 
                     <ShoppingListItem item={item} key={item.id} shoppingList={this.props.shippingList} getShoppingList={this.props.getShoppingList}/>

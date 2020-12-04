@@ -3,18 +3,18 @@ import axios from 'axios'
 
 class ButtonActionForFormsForMaryWithDescriptiveNamingConvention extends Component{
 
-    buyItem = (event, itemID) => {
-        axios.put(`/list/${itemID}`)
+    resetList = (event) => {
+        axios.put(`/list/reset`)
             .then((response) => {
-                console.log(`purchased ${itemID}`);
+                console.log(`reset list`);
                 this.props.getShoppingList();
             })
     }
 
-    deleteItem = (event, itemID) => {
-        axios.delete(`/list/${itemID}`)
+    deleteList = (event) => {
+        axios.delete(`/list/delete`)
             .then((response) => {
-                console.log(`deleted ${itemID}`);
+                console.log('deleted list');
                 this.props.getShoppingList();
             })
     }
