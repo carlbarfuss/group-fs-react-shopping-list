@@ -41,7 +41,7 @@ router.put('/reset', (req, res) => {
     let sqlText = '';
     sqlText = `UPDATE list SET purchased=false WHERE purchased=true`;
 
-    pool.query(sqlText, [reqId])
+    pool.query(sqlText)
         .then((result) => {
             res.sendStatus(200);
         })
@@ -66,8 +66,23 @@ router.put('/:id', (req, res) => {
             res.sendStatus(500);
         })
 })
+//DELETE ROUTE for entire list
+router.delete('/delete', (req, res) => {
+    let reqId = req.params.id;
+    console.log('Delete request for id', reqId);
+    let sqlText = 'DELETE FROM list where id > 0';
+    pool.query(sqlText)
+        .then((result) => {
+            console.log('List deleted');
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500); // Good server always responds
+        })
+})
 
-//DELETE ROUTE
+//DELETE ROUTE for individual item
 router.delete('/:id', (req, res) => {
     let reqId = req.params.id;
     console.log('Delete request for id', reqId);
