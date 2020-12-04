@@ -11,6 +11,7 @@ const defaultItem = {
 
 class App extends Component {
 
+
   state = {
     newItem: defaultItem,
     shoppingList: []
