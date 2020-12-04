@@ -1,16 +1,36 @@
 .banner-header {
   background-color: silver;
   text-align: center;
-  padding: 0.25em;
+  padding: 1em;
 }
 
 main{
   margin-left: 1em;
   margin-right: 1em;
 }
+.input-form{
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+.input-form-title{
+  margin-left: .5em;
+}
+
+
+.input-form label{
+  margin-left: 1em;
+  margin-right: .25em;
+}
+.input-form button{
+  margin-left: .5em;
+}
 
 .shopping-list{ 
   padding-top: 2em;
+}
+
+.shopping-list-buttons{
+  margin-left: 1em;
 }
 
 .shopping-list-item {
@@ -22,14 +42,22 @@ main{
   text-align: center;
   padding: 1em;
   margin-right: 1em;
+  margin-left: 1em;
   margin-bottom: 1em;
 }
 
-.shopping-list-quanitity{
-  margin-top: 2em;
+.shopping-list-quantity{
+  margin-top: 1.5em;
   margin-bottom: 2em;
 }
 
 .purchased{
   background-color: yellow;
+}
+
+.shopping-list-item-buy{
+  margin-right: 1.5em;
+}
+.shopping-list-delete{
+  margin-left: 1.5em;
 }

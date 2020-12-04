@@ -71,10 +71,11 @@ class ButtonActionForFormsForMaryWithDescriptiveNamingConvention extends Compone
 
     render(){
         return(
-            <> 
-                <button onClick={(event) => this.resetList(event)}>Reset List</button>
-                <button onClick={(event) => this.deleteList(event)}>Delete List</button>
-            </>
+            <div className="shopping-list-buttons"> 
+                <h2>Shopping List</h2>
+                <button className="btn btn-info" onClick={(event) => this.resetList(event)}>Reset List</button>
+                <button className="btn btn-danger shopping-list-delete" onClick={(event) => this.deleteList(event)}>Delete List</button>
+            </div>
         )
 
     }
