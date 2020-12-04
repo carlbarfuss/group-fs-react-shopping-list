@@ -6,11 +6,35 @@ import Swal from 'sweetalert2'
 class ButtonActionForFormsForMaryWithDescriptiveNamingConvention extends Component{
 
     resetList = (event) => {
-        axios.put(`/list/reset`)
-            .then((response) => {
-                console.log(`reset list`);
-                this.props.getShoppingList();   
-            })
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'This will reset purchased status on all items',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yeppers!',
+            cancelButtonText: 'Nope'
+        }).then((result) => {
+            if (result.value) {
+                Swal.fire(
+                    'Reset',
+                    'Ready to shop!',
+                    'success'
+                )
+                axios.put(`/list/reset`)
+                    .then((response) => {
+                        console.log(`reset list`);
+                        this.props.getShoppingList();
+                    })
+                // For more information about handling dismissals please visit
+                // https://sweetalert2.github.io/#handling-dismissals
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire(
+                    'Cancelled',
+                    'Shopping List Restored, thanks for Shopping SMart, shop S-Mart.',
+                    'error'
+                )
+            }
+        })
     }
 
     deleteList = (event) => {
