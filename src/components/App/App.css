@@ -12,6 +12,9 @@ main{
 .shopping-list{ 
   padding-top: 2em;
 }
+.shopping-list-buttons{
+  margin-left: 1em;
+}
 
 .shopping-list-item {
   border: 1px solid darkblue;
@@ -28,7 +31,7 @@ main{
 
 .shopping-list-quantity{
   margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
 }
 
 .purchased{
@@ -36,5 +39,8 @@ main{
 }
 
 .shopping-list-item-buy{
-  margin-right: 1em;
+  margin-right: 1.5em;
+}
+.shopping-list-delete{
+  margin-left: 1.5em;
 }
