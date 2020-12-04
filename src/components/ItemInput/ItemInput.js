@@ -4,7 +4,7 @@ class ItemInput extends Component {
 
     render() {
         return (
-            <div>
+            <div className="input-form">
                 <h2>Add an Item</h2>
                 <form onSubmit={this.props.addItem}>
                     <label>Item: </label>
@@ -13,7 +13,7 @@ class ItemInput extends Component {
                     <input type="number" onChange={(event) => this.props.handleChangeFor(event, 'quantity')} />
                     <label>Unit: </label>
                     <input type="text" onChange={(event) => this.props.handleChangeFor(event, 'unit')} />
-                    <button type="submit">Save</button>
+                    <button className="btn btn-primary" type="submit">Save</button>
                 </form>
             </div>
         ) // end return

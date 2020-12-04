@@ -9,9 +9,23 @@ main{
   margin-right: 1em;
 }
 
+.input-form{
+  margin-top: 2em;
+  margin-left: 1em;
+  margin-bottom: 2em;
+}
+
+.input-form label{
+  margin-left: .5em;
+}
+.input-form button{
+  margin-left: .5em;
+}
+
 .shopping-list{ 
   padding-top: 2em;
 }
+
 .shopping-list-buttons{
   margin-left: 1em;
 }
