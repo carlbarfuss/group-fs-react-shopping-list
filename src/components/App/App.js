@@ -7,6 +7,7 @@ import ItemInput from '../ItemInput/ItemInput';
 
 class App extends Component {
 
+
   state = {
     shoppingList: []
   }
@@ -34,22 +35,6 @@ class App extends Component {
     axios.delete(`/list/${itemID}`)
       .then((response) => {
         console.log(`deleted ${itemID}`);
-        this.getShoppingList();
-      })
-  }
-
-  buyItem = (event, itemID) => {
-    axios.put(`/list/${itemID}`)
-      .then((response) => {
-        console.log(`purchased ${itemID}`);
-        this.getShoppingList();
-      })
-  }
-
-  resetList = (event) => {
-    console.log('reset list');
-    axios.put('/list/reset')
-      .then((response) => {
         this.getShoppingList();
       })
   }
