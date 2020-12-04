@@ -29,3 +29,7 @@ main{
   margin-top: 2em;
   margin-bottom: 2em;
 }
+
+.purchased{
+  background-color: yellow;
+}

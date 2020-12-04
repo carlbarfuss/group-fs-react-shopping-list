@@ -21,7 +21,7 @@ class ShoppingListItem extends Component{
 
     render(){
         return(
-            <div className="shopping-list-item">
+            <div className={`shopping-list-item ${this.props.item.purchased && "purchased"}`}>
                 <h2>{this.props.item.name}</h2>
                 <p className="shopping-list-quantity">{this.props.item.quantity} {this.props.item.unit}</p>
                 {this.props.item.purchased ? 
